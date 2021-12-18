@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "watchmen-boot"
-version = "15.1.1"
+version = "15.1.9"
 description = ""
 authors = ["luke0623 <luke0623@outlook.com>"]
 
@@ -18,6 +18,7 @@ arrow = "^1.1.0"
 cacheout = "^0.13.1"
 mysqlclient = "^2.1.0"
 SQLAlchemy = "^1.4.27"
+requests = "^2.25.1"
 
 [tool.poetry.dev-dependencies]
 
