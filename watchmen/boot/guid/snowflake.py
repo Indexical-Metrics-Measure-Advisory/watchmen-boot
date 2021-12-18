@@ -153,7 +153,7 @@ class WorkerIdGen:
     def heart_beat(self):
         try:
             while True:
-                self.storage_template.update_one()
+                self.storage_template.update_one(self.ip, self.process_id)
                 time.sleep(30)
         finally:
             logger.error("worker id register heart beat stop")
