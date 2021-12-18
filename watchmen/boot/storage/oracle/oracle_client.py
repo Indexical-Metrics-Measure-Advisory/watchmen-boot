@@ -49,7 +49,6 @@ class OracleEngine(object):
     def get_engine(self):
         return self.engine
 
-
     def parse_obj(self, base_model, result, table):
         model = base_model()
         for attr, value in model.__dict__.items():
