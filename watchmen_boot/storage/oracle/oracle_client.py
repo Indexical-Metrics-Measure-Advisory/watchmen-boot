@@ -1,12 +1,11 @@
 import logging
 from typing import List
-import json
 import cx_Oracle
-from sqlalchemy import create_engine, CLOB
+from sqlalchemy import create_engine
 from sqlalchemy.pool import NullPool
 
-from watchmen.boot.config.config import settings
-from watchmen.boot.storage.model.data_source import DataSource, DataSourceParam
+from watchmen_boot.config.config import settings
+from watchmen_boot.storage.model.data_source import DataSource, DataSourceParam
 
 SID = "SID"
 SERVICE_NAME = "SERVICE_NAME"

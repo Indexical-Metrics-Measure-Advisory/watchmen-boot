@@ -1,6 +1,6 @@
 import requests
 
-from watchmen.boot.config.config import settings
+from watchmen_boot.config.config import settings
 
 session = requests.Session()
 session.headers.update({"Content-Type": "application/json"})

@@ -2,7 +2,7 @@ import logging
 import logging.handlers
 import sys
 from pythonjsonlogger import jsonlogger
-from watchmen.boot.config.config import PROD, settings
+from watchmen_boot.config.config import PROD, settings
 
 
 def init():

@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 
-from watchmen.boot.storage.model.data_source import DataSource
+from watchmen_boot.storage.model.data_source import DataSource
 
 
 class MongoEngine(object):

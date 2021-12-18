@@ -3,10 +3,10 @@ from operator import eq
 
 from sqlalchemy import MetaData, Table, Column, String, Integer, Date, insert, update, and_, select, delete
 
-from watchmen.boot.storage.oracle.oracle_utils import parse_obj
+from watchmen_boot.storage.mysql.mysql_utils import parse_obj
 
 
-class OracleStorage:
+class MysqlStorage:
 
     def __init__(self, engine):
         self.engine = engine
@@ -42,12 +42,14 @@ class OracleStorage:
         with self.engine.connect() as conn:
             cursor = conn.execute(stmt).cursor
             columns = [col[0] for col in cursor.description]
-            cursor.rowfactory = lambda *args: dict(zip(columns, args))
             row = cursor.fetchone()
             if row is None:
                 return None
             else:
-                return parse_obj(model, row, table)
+                result = {}
+                for index, name in enumerate(columns):
+                    result[name] = row[index]
+                return parse_obj(model, result, table)
 
     def list_all(self, model):
         table = self.worker_id_table
@@ -55,11 +57,13 @@ class OracleStorage:
         with self.engine.connect() as conn:
             cursor = conn.execute(stmt).cursor
             columns = [col[0] for col in cursor.description]
-            cursor.rowfactory = lambda *args: dict(zip(columns, args))
             res = cursor.fetchall()
         results = []
         for row in res:
-            results.append(parse_obj(model, row, table))
+            result = {}
+            for index, name in enumerate(columns):
+                result[name] = row[index]
+            results.append(parse_obj(model, result, table))
         return results
 
     def delete_by_id(self, ip_, process_id):

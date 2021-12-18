@@ -1,6 +1,6 @@
-from watchmen.boot.config.config import settings
-from watchmen.boot.constants.database.constant import MONGO, MYSQL, ORACLE
-from watchmen.boot.storage.model.data_source import DataSource, DataSourceParam
+from watchmen_boot.config.config import settings
+from watchmen_boot.constants.database.constant import MONGO, MYSQL, ORACLE
+from watchmen_boot.storage.model.data_source import DataSource, DataSourceParam
 
 
 def get_default_datasource():
