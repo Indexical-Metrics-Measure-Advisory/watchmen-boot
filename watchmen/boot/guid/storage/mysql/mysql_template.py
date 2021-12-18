@@ -3,6 +3,8 @@ from operator import eq
 
 from sqlalchemy import MetaData, Table, Column, String, Integer, Date, insert, update, and_, select, delete
 
+from watchmen.boot.storage.mysql.mysql_utils import parse_obj
+
 
 class MysqlStorage:
 
@@ -47,7 +49,7 @@ class MysqlStorage:
                 result = {}
                 for index, name in enumerate(columns):
                     result[name] = row[index]
-                return self.engine.parse_obj(model, result, table)
+                return parse_obj(model, result, table)
 
     def list_all(self, model):
         table = self.worker_id_table
@@ -61,7 +63,7 @@ class MysqlStorage:
             result = {}
             for index, name in enumerate(columns):
                 result[name] = row[index]
-            results.append(self.engine.parse_obj(model, result, table))
+            results.append(parse_obj(model, result, table))
         return results
 
     def delete_by_id(self, ip_, process_id):
