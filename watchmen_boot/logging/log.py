@@ -25,7 +25,7 @@ def init():
                                                            backupCount=5, encoding='utf-8')
         log_handler.setLevel(logging.INFO)
         formatter = jsonlogger.JsonFormatter(
-            '%(process)d %(threadName)s %(name)s %(levelname)s %(message)s %(asctime)s')
+            '%(asctime)s - %(process)d - %(threadName)s - %(name)s - %(levelname)s - %(message)s')
         log_handler.setFormatter(formatter)
         logger.addHandler(log_handler)
     else:
