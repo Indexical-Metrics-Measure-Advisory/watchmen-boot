@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "watchmen-boot"
-version = "15.1.12"
+version = "15.1.13"
 description = ""
 authors = ["luke0623 <luke0623@outlook.com>"]
 
 
 packages = [
-    { include = "watchmen" }
+    { include = "watchmen_boot" }
 ]
 
 [tool.poetry.dependencies]
