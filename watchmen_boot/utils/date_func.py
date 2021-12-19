@@ -1,5 +1,3 @@
-from datetime import datetime
-import pandas as pd
 import arrow
 from math import ceil
 
@@ -45,7 +43,7 @@ def parsing_and_formatting(value, format_type_):
             else:
                 return 2
         elif format_type_ == QUARTER:
-            return pd.Timestamp(arr_value).quarter
+            return quarter_of(arr_value)
         elif format_type_ == MONTH:
             return arr_value.month
         elif format_type_ == WEEK_OF_YEAR:
@@ -58,6 +56,18 @@ def parsing_and_formatting(value, format_type_):
             return int(arr_value.strftime("%w")) + 1
     else:
         return value
+
+
+def quarter_of(dt):
+    month_ = dt.strftime("%m")
+    if month_ in ['01', '02', '03']:
+        return 1
+    elif month_ in ['04', '05', '06']:
+        return 2
+    elif month_ in ['07', '08', '09']:
+        return 3
+    elif month_ in ['10', '11', '12']:
+        return 4
 
 
 def week_of_month(dt):
