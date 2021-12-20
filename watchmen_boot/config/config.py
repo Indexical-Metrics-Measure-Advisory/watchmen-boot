@@ -15,12 +15,15 @@ class Settings(BaseSettings):
 
     LOGGER_FILE: str = "temp/rotating.log"
     LOGGER_JSON_FORMAT: bool = False
+    LOGGER_FILE_ON: bool = True
 
     DASK_ON: bool = False
     DASK_PROCESSES: bool = False
     DASK_TEMP: str = None
 
     ENVIRONMENT: str = DEV
+
+
 
     ALGORITHM = "HS256"
     STORAGE_ENGINE = "mongo"
