@@ -7,7 +7,7 @@ from watchmen_boot.storage.utility.date_utils import dumps
 class MysqlEngine(object):
 
     def __init__(self, datasource: DataSource):
-        self.connection_url = 'mysql://%s:%s@%s:%s/%s?charset=utf8' % (datasource.username,
+        self.connection_url = 'mysql+pymysql://%s:%s@%s:%s/%s?charset=utf8' % (datasource.username,
                                                                        datasource.password,
                                                                        datasource.host,
                                                                        datasource.port,
